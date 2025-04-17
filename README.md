@@ -16,7 +16,7 @@ Below shows the explained variance over training steps:
 * **RL Algorithm:** Employs Proximal Policy Optimization (PPO) from `stable-baselines3`.
 * **Preprocessing:**
     * `JoypadSpace`: Simplifies the action space to common movements.
-    * `GrayScaleObservation`: Converts observations to grayscale to reduce state complexity.
+    * `GrayScaleObservation`: Converts observations to grayscale in order to reduce state complexity.
     * `VecFrameStack`: Stacks consecutive frames to provide the agent with temporal information (motion).
 * **Compatibility:** Includes a `SeedFixWrapper` to handle potential API changes in `env.reset()` between `gym` and `gymnasium`.
 * **Training:** Uses `train.py` to train the agent.
