@@ -80,7 +80,6 @@ Below shows the explained variance over training steps:
     * Load the specified model (`./train/best_model_1000000.zip` by default - **modify the path in `test.py` if you want to load a different checkpoint**).
     * Initialize the environment with `render_mode='human'`.
     * Run the agent in the environment, allowing you to watch it play.
-    * Press `Ctrl+C` in the terminal to stop the script.
 
 ## File Structure
 ```

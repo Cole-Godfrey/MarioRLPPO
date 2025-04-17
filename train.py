@@ -31,18 +31,19 @@ class TrainAndLoggingCallback(BaseCallback):
             self.model.save(model_path)
         return True
 
-env = gym_super_mario_bros.make('SuperMarioBros-v0', apply_api_compatibility=True)
-env = JoypadSpace(env, SIMPLE_MOVEMENT)
-env = GrayScaleObservation(env, keep_dim=True)
-env = SeedFixWrapper(env)
-env = DummyVecEnv([lambda: env])
-env = VecFrameStack(env, 4, channels_order='last')
+if __name__ == '__main__':
+    env = gym_super_mario_bros.make('SuperMarioBros-v0', apply_api_compatibility=True)
+    env = JoypadSpace(env, SIMPLE_MOVEMENT)
+    env = GrayScaleObservation(env, keep_dim=True)
+    env = SeedFixWrapper(env)
+    env = DummyVecEnv([lambda: env])
+    env = VecFrameStack(env, 4, channels_order='last')
 
-CHECKPOINT_DIR = './train/'
-LOG_DIR = './logs/'
+    CHECKPOINT_DIR = './train/'
+    LOG_DIR = './logs/'
 
-callback = TrainAndLoggingCallback(check_freq=1000000, save_path=CHECKPOINT_DIR)
+    callback = TrainAndLoggingCallback(check_freq=1000000, save_path=CHECKPOINT_DIR)
 
-model = PPO('CnnPolicy', env, verbose=1, tensorboard_log=LOG_DIR, learning_rate=0.000001, n_steps=512)
+    model = PPO('CnnPolicy', env, verbose=1, tensorboard_log=LOG_DIR, learning_rate=0.000001, n_steps=512)
 
-model.learn(total_timesteps=1000000, callback=callback)
+    model.learn(total_timesteps=1000000, callback=callback)
