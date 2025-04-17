@@ -6,7 +6,7 @@ Here's a demonstration of the trained agent playing the game:
 
 ![Mario Agent Playing](./gameplay.gif)
 
-Below is an example of the training progress, showing the explained variance over training steps:
+Below shows the explained variance over training steps:
 
 ![Training Progress](./explained_variance.png)
 
